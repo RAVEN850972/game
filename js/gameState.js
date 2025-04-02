@@ -140,7 +140,7 @@ function createNextChapterButton(nextChapter, delay = 2000) {
     setTimeout(() => {
         choicesContainer.innerHTML = '';
         
-        if (isChapterAvailable(nextChapter)) {
+        if (isChapterAvailable(True)) {
             const nextButton = document.createElement('button');
             nextButton.classList.add('choice-button');
             nextButton.textContent = chapters[nextChapter].title;

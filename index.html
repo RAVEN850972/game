@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChronoSync - Терминальная Игра</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <span>ТЕРМИНАЛ TimeSecurity ХРОНО v7.2.9</span>
+            <div class="coins-counter">МОНЕТЫ: <span id="coins-value">0</span></div>
+        </div>
+
+        <div class="terminal-screen">
+            <div id="terminal-output"></div>
+            
+            <div class="voices-container" id="voices-container">
+                <!-- Внутренние голоса будут добавляться динамически -->
+            </div>
+        </div>
+
+        <div class="terminal-input">
+            <div id="name-input-container">
+                <input type="text" id="player-name" placeholder="ВВЕДИТЕ ВАШЕ ИМЯ" autocomplete="off">
+                <button id="name-submit">НАЧАТЬ</button>
+            </div>
+            
+            <div id="choices-container">
+                <!-- Кнопки выбора будут добавляться динамически -->
+            </div>
+        </div>
+
+        <!-- Оверлей для инициализации аудио -->
+        <div id="start-overlay">
+            <div class="start-content">
+                <h1>ChronoSync</h1>
+                <p>Общение с искусственным интеллектом, который постепенно обретает сознание</p>
+                <button id="start-game">ЗАПУСТИТЬ ТЕРМИНАЛ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Аудио элементы -->
+    <audio id="typing-sound" src="sounds/typing.mp3" preload="auto"></audio>
+    <audio id="button-sound" src="sounds/button.mp3" preload="auto"></audio>
+    <audio id="terminal-on" src="sounds/terminal-on.mp3" preload="auto"></audio>
+    <audio id="anomaly-found" src="sounds/anomaly.mp3" preload="auto"></audio>
+    <audio id="chapter-complete" src="sounds/chapter-complete.mp3" preload="auto"></audio>
+
+    <!-- Основные скрипты -->
+    <script src="js/utils.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/gameState.js"></script>
+    <script src="js/ui.js"></script>
+    
+    <!-- Скрипты глав (порядок важен) -->
+    <script src="js/chapters/prologue.js"></script>
+    <script src="js/chapters/chapter1.js"></script>
+    <script src="js/chapters/chapter2.js"></script>
+    <script src="js/chapters/chapter3.js"></script>
+    <script src="js/chapters/chapter4.js"></script>
+    <script src="js/chapters/chapter5.js"></script>
+    
+    <!-- Инициализация игры должна быть последней -->
+    <script src="js/main.js"></script>
+</body>
+</html>

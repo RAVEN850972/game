@@ -1,0 +1,380 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Контейнер терминала */
+.terminal-container {
+    width: 90%;
+    max-width: 800px;
+    height: 90vh;
+    max-height: 600px;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Заголовок терминала */
+.terminal-header {
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    position: relative;
+}
+
+.terminal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.7), transparent);
+}
+
+/* Счетчик монет */
+.coins-counter {
+    padding: 3px 8px;
+    background-color: #111;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+/* Экран терминала */
+.terminal-screen {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    position: relative;
+    background-color: #000;
+    border-bottom: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Эффект мерцания для экрана */
+.terminal-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            0deg, 
+            rgba(255, 255, 255, 0.03) 0px, 
+            rgba(255, 255, 255, 0.03) 1px, 
+            transparent 1px, 
+            transparent 2px
+        );
+    pointer-events: none;
+    animation: scan-lines 10s linear infinite;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+/* Эффект сканирующих линий */
+@keyframes scan-lines {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Вывод терминала */
+#terminal-output {
+    flex: 1;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Строки вывода терминала */
+.terminal-line {
+    margin-bottom: 8px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+}
+
+/* Эффект для строк терминала */
+.typed-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #fff;
+    animation: typing 0.1s steps(1) infinite;
+}
+
+@keyframes typing {
+    from, to { border-color: transparent }
+    50% { border-color: #fff; }
+}
+
+/* Стили для текста терминала */
+.system-text {
+    color: #fff;
+}
+
+.chronos-text {
+    color: #fff;
+    font-weight: bold;
+}
+
+.user-input {
+    color: #3498db;
+}
+
+/* Контейнер для внутренних голосов */
+.voices-container {
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 10px;
+    z-index: 2;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+}
+
+/* Стили для разных внутренних голосов */
+.voice {
+    margin-bottom: 5px;
+}
+
+.voice-logic {
+    color: #FF5733;
+}
+
+.voice-emotion {
+    color: #33A8FF;
+}
+
+.voice-ethics {
+    color: #33FF57;
+}
+
+/* Область ввода в терминале */
+.terminal-input {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+}
+
+/* Контейнер для ввода имени */
+#name-input-container {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#player-name {
+    flex: 1;
+    padding: 8px 12px;
+    background-color: #111;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+#name-submit {
+    padding: 8px 15px;
+    background-color: #111;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+#name-submit:hover {
+    background-color: #222;
+}
+
+/* Контейнер для выбора */
+#choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Кнопки выбора */
+.choice-button {
+    padding: 10px 15px;
+    background-color: #111;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-button:hover {
+    background-color: #222;
+    transform: translateY(-2px);
+}
+
+.choice-button:active {
+    transform: translateY(0);
+}
+
+/* Эффект наведения для кнопок */
+.choice-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.choice-button:hover::before {
+    left: 100%;
+}
+
+/* Анимация для обнаружения аномалии */
+@keyframes anomaly-glitch {
+    0% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(-5px, 5px);
+    }
+    50% {
+        transform: translate(5px, -5px);
+    }
+    75% {
+        transform: translate(-3px, -3px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.anomaly-detected {
+    animation: anomaly-glitch 0.3s ease-in-out 3;
+}
+
+/* Стартовый оверлей */
+#start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.start-content {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #fff;
+    background-color: #111;
+    max-width: 80%;
+}
+
+.start-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.start-content p {
+    margin-bottom: 30px;
+    color: #ccc;
+    font-size: 1rem;
+}
+
+#start-game {
+    padding: 12px 24px;
+    background-color: #111;
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#start-game:hover {
+    background-color: #222;
+    transform: scale(1.05);
+}
+
+/* Адаптивный дизайн для мобильных устройств */
+@media (max-width: 768px) {
+    .terminal-container {
+        width: 95%;
+        height: 95vh;
+    }
+    
+    .terminal-header {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .coins-counter {
+        font-size: 0.8rem;
+    }
+    
+    .terminal-screen {
+        padding: 10px;
+    }
+    
+    #player-name, #name-submit {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    
+    .choice-button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .voices-container {
+        font-size: 0.9rem;
+    }
+}

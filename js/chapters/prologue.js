@@ -237,5 +237,5 @@ async function handlePrologueChoice3(choice) {
     playChapterCompleteSound();
     
     // Создаем кнопку для перехода к главе 1
-    createNextChapterButton('chapter1', 100);
+    createNextChapterButton('chapter1', 2000);
 }

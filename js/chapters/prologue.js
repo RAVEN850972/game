@@ -156,8 +156,8 @@ async function handlePrologueChoice2(choice) {
         
         // Переходим к последнему выбору пролога
         chapterProgress = 1;
-        prologueFinalQuestion();
-    }
+        handlePrologueChoice3();
+    }   
 }
 
 /**
